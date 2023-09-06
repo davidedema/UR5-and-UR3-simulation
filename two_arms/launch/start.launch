@@ -31,6 +31,6 @@
       </include>
     </group>
   
-  <node name="rviz" pkg="rviz" type="rviz" args="-f world" />
+  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-f world" /> -->
 
 </launch>
