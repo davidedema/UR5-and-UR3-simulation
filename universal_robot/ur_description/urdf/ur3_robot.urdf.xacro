@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro"
+       name="ur3" >
+
+  <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
+
+  <!-- common stuff -->
+  <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" />
+
+  <!-- ur3 -->
+  <xacro:include filename="$(find ur_description)/urdf/ur3.urdf.xacro" />
+  <!-- gripper -->
+  <xacro:include filename="$(find gripper_description)/urdf/soft_gripper.macro.xacro" />
+  <xacro:soft_gripper 
+	transmission_hw_interface="$(arg transmission_hw_interface)"			
+	grasp_plugin="true"			
+	gripper_active="true"/>
+  <!-- arm -->
+  <xacro:ur3_robot prefix="" joint_limited="false"
+    transmission_hw_interface="$(arg transmission_hw_interface)"
+  />
+
+  <joint name="gripper_robot_joint" type="fixed">
+        <parent link="tool0_ur"/>
+        <child link="gripper_base"/>
+        <origin xyz="0 0 0" rpy="0 0 1.57"/>
+  </joint>
+  
+  <link name="world" />
+
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "base_link" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+
+</robot>
