@@ -13,11 +13,22 @@ source install/setup.bash
 The simulation have two robotic arms: one UR5 and one UR3. They, of course, can be controlled indipendently with their topics. I've created 2 simple scripts for the UR5 and UR3 motion: `motionGroupPosController.py` for the UR5 and `motionGroupPosControllerCopy.py` for the UR3.
 
 You can run it in this way:
-```
-roscd two_arms
-cd scripts
-python3 motionGroupPosController.py
-``` 
+- Run the simulation 
+    ```
+    roslaunch two_arms start.launch
+    ```
+- Move UR5
+    ```
+    roscd two_arms
+    cd scripts
+    python3 motionGroupPosController.py
+    ``` 
+- Move UR3
+    ```
+    roscd two_arms
+    cd scripts
+    python3 motionGroupPosControllerCopy.py
+    ``` 
 
 ## Known issues
 Rviz visualizer not showing properly the models (for now it's not launched)
