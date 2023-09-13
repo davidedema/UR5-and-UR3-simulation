@@ -1,5 +1,5 @@
 # UR5-and-UR3-simulation
-Simulation of two robotic arms (UR5 and UR3) with an OnRobot 2 finger soft gripper
+Simulation of two robotic arms (UR5 and UR3) with a SoftRobotics 2 finger soft gripper
 ![](assets/two_robots.png)
 
 ## Install the project
